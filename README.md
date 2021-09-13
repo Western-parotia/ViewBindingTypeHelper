@@ -4,5 +4,5 @@
 
 首先要配置腾讯云的maven，一般都有，不多说
 ```
-"com.foundation.xxxx:yyyy:0.0.0"
+"com.foundation.widget:view-binding-helper:0.0.1-SNAPSHOT"
 ```
