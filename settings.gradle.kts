@@ -1,0 +1,2 @@
+include(":widget")
+include(":app")
