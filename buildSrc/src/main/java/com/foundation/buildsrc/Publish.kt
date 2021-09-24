@@ -4,8 +4,8 @@ import java.io.File
 import java.text.SimpleDateFormat
 import java.util.*
 
-private const val VERSION = "0.0.1"
-private const val SNAPSHOT = true
+private const val VERSION = "1.0.0"
+private const val SNAPSHOT = false
 private const val ARTIFACT_ID = "view-binding-helper"
 
 object Publish {
