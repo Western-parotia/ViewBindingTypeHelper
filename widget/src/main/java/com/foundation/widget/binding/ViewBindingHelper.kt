@@ -73,7 +73,7 @@ object ViewBindingHelper {
             return method.invoke(null, layoutInflater, container, attachToParent) as T
         } catch (e: Exception) {
             e.printStackTrace()
-            throw IllegalArgumentException("无法实例化${clz}，请注意是否开启了ViewBinding.inflate混淆")
+            throw IllegalArgumentException("无法实例化${clz}，请注意是否开启了ViewBinding.inflate混淆", e)
         }
     }
 }
