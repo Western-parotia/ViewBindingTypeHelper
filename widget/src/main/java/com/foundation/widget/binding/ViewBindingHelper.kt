@@ -4,7 +4,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.viewbinding.ViewBinding
 import java.lang.reflect.ParameterizedType
-import java.util.*
 
 object ViewBindingHelper {
     /**
@@ -43,7 +42,7 @@ object ViewBindingHelper {
 
     /**
      * 根据类获取vb实例
-     * @param obj 当前类实例
+     * @param obj 当前带ViewBinding泛型的实例类
      */
     fun <T : ViewBinding> getViewBindingInstance(
         obj: Any,
@@ -69,8 +68,12 @@ object ViewBindingHelper {
             val method = clz.getDeclaredMethod(
                 "inflate", LayoutInflater::class.java, ViewGroup::class.java, Boolean::class.java
             )
+
             @Suppress("UNCHECKED_CAST")
-            return method.invoke(null, layoutInflater, container, attachToParent) as T
+            val vb = method.invoke(null, layoutInflater, container, attachToParent) as T
+            //保存自身，方便其他框架使用
+            vb.root.setTag(R.id.tag_view_binding_obj, vb)
+            return vb
         } catch (e: Exception) {
             e.printStackTrace()
             throw IllegalArgumentException("无法实例化${clz}，请注意是否开启了ViewBinding.inflate混淆", e)
