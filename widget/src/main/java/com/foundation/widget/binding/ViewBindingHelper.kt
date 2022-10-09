@@ -22,7 +22,8 @@ object ViewBindingHelper {
         if (myClass == Any::class.java || myClass == null) {
             return null
         }
-        cacheClass[myClass.name]?.let {
+        val cacheKey = myClass.name
+        cacheClass[cacheKey]?.let {
             return it as Class<T>
         }
         //遍历父类所有泛型参数
@@ -30,7 +31,7 @@ object ViewBindingHelper {
             if (type is Class<*>) {
                 if (ViewBinding::class.java.isAssignableFrom(type)) {
                     val clazz = type as Class<T>
-                    cacheClass[myClass.name] = clazz//缓存
+                    cacheClass[cacheKey] = clazz//缓存
                     return clazz
                 }
             }
@@ -52,7 +53,8 @@ object ViewBindingHelper {
         if (myClass == Any::class.java || myClass == null) {
             return null
         }
-        cacheClass[myClass.name]?.let {
+        val cacheKey = "${myClass.name}#$typeIndex"
+        cacheClass[cacheKey]?.let {
             return it as Class<T>
         }
         //直接取对应index的泛型参数
@@ -62,7 +64,7 @@ object ViewBindingHelper {
             ?.let {
                 if (ViewBinding::class.java.isAssignableFrom(it)) {
                     val clazz = it as Class<T>
-                    cacheClass[myClass.name] = clazz//缓存
+                    cacheClass[cacheKey] = clazz//缓存
                     return clazz
                 }
             }

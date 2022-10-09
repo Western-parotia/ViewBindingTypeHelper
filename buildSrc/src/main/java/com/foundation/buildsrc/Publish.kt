@@ -4,7 +4,7 @@ import java.io.File
 import java.text.SimpleDateFormat
 import java.util.*
 
-private const val VERSION = "1.0.3"
+private const val VERSION = "1.0.4"
 private const val SNAPSHOT = false
 private const val ARTIFACT_ID = "view-binding-helper"
 
