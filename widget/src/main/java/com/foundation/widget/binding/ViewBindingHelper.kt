@@ -3,6 +3,7 @@ package com.foundation.widget.binding
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.viewbinding.ViewBinding
+import java.lang.reflect.Method
 import java.lang.reflect.ParameterizedType
 
 @Suppress("UNCHECKED_CAST")
@@ -12,6 +13,7 @@ object ViewBindingHelper {
      * viewBinding是有限的，所以不需要清
      */
     private val cacheClass = HashMap<String, Class<out ViewBinding>>(64)
+    private val cacheInflateMethod = HashMap<Class<out ViewBinding>, Method>(64)
 
     /**
      * 获取ViewBinding的class
@@ -97,10 +99,14 @@ object ViewBindingHelper {
         attachToParent: Boolean = false
     ): T {
         try {
-            val method = clz.getDeclaredMethod(
-                "inflate", LayoutInflater::class.java, ViewGroup::class.java, Boolean::class.java
-            )
-
+            val method = cacheInflateMethod.getOrPut(clz) {
+                clz.getDeclaredMethod(
+                    "inflate",
+                    LayoutInflater::class.java,
+                    ViewGroup::class.java,
+                    Boolean::class.java
+                )
+            }
             val vb = method.invoke(null, layoutInflater, container, attachToParent) as T
             //保存自身，方便其他框架使用
             vb.root.setTag(R.id.tag_view_binding_obj, vb)
