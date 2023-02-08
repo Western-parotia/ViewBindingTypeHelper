@@ -84,7 +84,7 @@ object ViewBindingHelper {
         container: ViewGroup?,
         attachToParent: Boolean = false
     ): T {
-        val bindingCls: Class<ViewBinding> = getViewBindingClass(obj.javaClass)
+        val bindingCls: Class<T> = getViewBindingClass(obj.javaClass)
             ?: throw IllegalArgumentException("没有找到类${obj}的ViewBinding，请检查")
         return getViewBindingInstanceByClass(bindingCls, layoutInflater, container, attachToParent)
     }
@@ -93,7 +93,7 @@ object ViewBindingHelper {
      * 根据vb class获取vb实例
      */
     fun <T : ViewBinding> getViewBindingInstanceByClass(
-        clz: Class<out ViewBinding>,
+        clz: Class<out T>,
         layoutInflater: LayoutInflater,
         container: ViewGroup?,
         attachToParent: Boolean = false
@@ -116,4 +116,13 @@ object ViewBindingHelper {
             throw IllegalArgumentException("无法实例化${clz}，请注意是否开启了ViewBinding.inflate混淆", e)
         }
     }
+
+    /**
+     * inline实现
+     */
+    inline fun <reified T : ViewBinding> getViewBindingInstanceByClass(
+        layoutInflater: LayoutInflater,
+        container: ViewGroup?,
+        attachToParent: Boolean = false
+    ) = getViewBindingInstanceByClass(T::class.java, layoutInflater, container, attachToParent)
 }
