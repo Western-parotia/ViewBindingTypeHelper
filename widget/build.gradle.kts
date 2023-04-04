@@ -62,7 +62,7 @@ tasks.register("createGitTagAndPush", Exec::class.java) {
 publishing {
     publications {
         create<MavenPublication>("tools") {
-//            groupId = Publish.Maven.getThreePackage(projectDir)
+            groupId = Publish.Maven.getThreePackage(projectDir)
             artifactId = Publish.Version.artifactId
             version = Publish.Version.versionName
             artifact(sourceCodeTask)
