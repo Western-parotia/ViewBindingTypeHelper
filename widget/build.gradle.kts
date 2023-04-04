@@ -1,5 +1,5 @@
-import com.foundation.buildsrc.Dependencies
-import com.foundation.buildsrc.Publish
+import com.foundation.kts.Dependencies
+import com.foundation.kts.Publish
 
 plugins {
     id("com.android.library")
@@ -30,6 +30,9 @@ android {
     }
     kotlinOptions {
         jvmTarget = "1.8"
+        freeCompilerArgs =
+            freeCompilerArgs + arrayOf("-module-name", Publish.Maven.getFourPackage(projectDir))
+
     }
     compileOptions {
         kotlinOptions.freeCompilerArgs += arrayOf(
@@ -45,8 +48,7 @@ android {
 val sourceCodeTask: Jar = tasks.register("sourceCode", Jar::class.java) {
     from(android.sourceSets.getByName("main").java.srcDirs)
     classifier = "sources"
-}
-    .get()
+}.get()
 
 
 tasks.register("createGitTagAndPush", Exec::class.java) {
@@ -60,7 +62,7 @@ tasks.register("createGitTagAndPush", Exec::class.java) {
 publishing {
     publications {
         create<MavenPublication>("tools") {
-            groupId = Publish.Maven.getThreePackage(projectDir)
+//            groupId = Publish.Maven.getThreePackage(projectDir)
             artifactId = Publish.Version.artifactId
             version = Publish.Version.versionName
             artifact(sourceCodeTask)
@@ -84,12 +86,10 @@ publishing {
 
         }
         repositories {
-            maven {
-                setUrl(Publish.Maven.codingArtifactsRepoUrl)
-                credentials {
-                    username = Publish.Maven.repositoryUserName
-                    password = Publish.Maven.repositoryPassword
-                }
+            if (Publish.SNAPSHOT) {
+                Publish.Maven.aliyunSnapshotRepositories(this)
+            } else {
+                Publish.Maven.aliyunReleaseRepositories(this)
             }
         }
     }

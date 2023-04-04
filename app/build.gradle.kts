@@ -1,5 +1,5 @@
-import com.foundation.buildsrc.Dependencies
-import com.foundation.buildsrc.Statics
+import com.foundation.kts.Dependencies
+import com.foundation.kts.Statics
 
 plugins {
     id("com.android.application")
