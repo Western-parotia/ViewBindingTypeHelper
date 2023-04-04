@@ -9,7 +9,7 @@ import java.util.*
  *create by zhusw on 5/6/21 16:43
  */
 object Publish {
-    private const val VERSION = "1.0.4"
+    private const val VERSION = "1.0.6"
     const val SNAPSHOT = false
     private const val ARTIFACT_ID = "view-binding-helper"
 
