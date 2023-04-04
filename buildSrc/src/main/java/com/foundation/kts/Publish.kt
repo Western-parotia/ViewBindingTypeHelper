@@ -1,5 +1,6 @@
 package com.foundation.kts
 
+import com.foundation.kts.Repositories.mavenPassword
 import org.gradle.api.artifacts.dsl.RepositoryHandler
 import java.io.File
 import java.text.SimpleDateFormat
@@ -105,27 +106,27 @@ object Publish {
          * 使用本地账号密码（用于推送）
          */
         fun aliyunReleaseRepositories(rh: RepositoryHandler) {
-//            rh.mavenPassword(
-//                Repositories.aliyunReleaseAndArtifacts,
-//                repositoryUserName,
-//                repositoryPassword
-//            )
+            rh.mavenPassword(
+                Repositories.aliyunReleaseAndArtifacts,
+                repositoryUserName,
+                repositoryPassword
+            )
         }
 
         fun aliyunSnapshotRepositories(rh: RepositoryHandler) {
-//            rh.mavenPassword(
-//                Repositories.aliyunSnapshotAndArtifacts,
-//                repositoryUserName,
-//                repositoryPassword
-//            )
+            rh.mavenPassword(
+                Repositories.aliyunSnapshotAndArtifacts,
+                repositoryUserName,
+                repositoryPassword
+            )
         }
 
         fun codingRepositories(rh: RepositoryHandler) {
-//            rh.mavenPassword(
-//                Repositories.codingMjMaven,
-//                repositoryUserName,
-//                repositoryPassword
-//            )
+            rh.mavenPassword(
+                Repositories.codingMjMaven,
+                repositoryUserName,
+                repositoryPassword
+            )
         }
     }
 }
