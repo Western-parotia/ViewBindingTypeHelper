@@ -8,7 +8,7 @@
 * [https://github.com/Western-parotia/ConvenientRecyclerViewAdapter](https://github.com/Western-parotia/ConvenientRecyclerViewAdapter)
 * [https://github.com/Western-parotia/AndroidBaseArchitecture](https://github.com/Western-parotia/AndroidBaseArchitecture)
 
-## 核心功能：
+## API：
 
 ```kotlin
 /**
