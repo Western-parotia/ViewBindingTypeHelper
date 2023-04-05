@@ -2,9 +2,11 @@
 
 简化ViewBinding 初始化，通过读取范型获取 ViewBinding Class 反射进行初始化
 用于 Activity，Fragment，RecycleView-Adapter 等需要初始化ViewBinding的地方
+
 在使用的项目：
-[https://github.com/Western-parotia/ConvenientRecyclerViewAdapter](https://github.com/Western-parotia/ConvenientRecyclerViewAdapter)
-[https://github.com/Western-parotia/AndroidBaseArchitecture](https://github.com/Western-parotia/AndroidBaseArchitecture)
+
+* [https://github.com/Western-parotia/ConvenientRecyclerViewAdapter](https://github.com/Western-parotia/ConvenientRecyclerViewAdapter)
+* [https://github.com/Western-parotia/AndroidBaseArchitecture](https://github.com/Western-parotia/AndroidBaseArchitecture)
 
 ## 核心功能：
 
