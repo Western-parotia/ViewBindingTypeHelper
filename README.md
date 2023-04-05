@@ -8,6 +8,14 @@
 * [https://github.com/Western-parotia/ConvenientRecyclerViewAdapter](https://github.com/Western-parotia/ConvenientRecyclerViewAdapter)
 * [https://github.com/Western-parotia/AndroidBaseArchitecture](https://github.com/Western-parotia/AndroidBaseArchitecture)
 
+## 更新日志：
+
+## 引用：
+
+```kotlin
+ implementation("com.foundation.widget:view-binding-helper:1.0.6")
+```
+
 ## API：
 
 ```kotlin
@@ -31,12 +39,4 @@ fun <T : ViewBinding> getViewBindingClassFromIndex(..): Class<T>? {}
  * @param obj 当前带ViewBinding泛型的实例类
  */
 fun <T : ViewBinding> getViewBindingInstance(..): T {}
-```
-
-## 更新日志：
-
-## 引用：
-
-```kotlin
- implementation("com.foundation.widget:view-binding-helper:1.0.6")
 ```
