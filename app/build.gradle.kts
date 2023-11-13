@@ -7,11 +7,11 @@ plugins {
 }
 
 android {
-    compileSdkVersion(30)
+    compileSdk = 30
 
     defaultConfig {
         applicationId = "com.foundation.example"
-        minSdkVersion(21)
+        minSdk = 21
 
         resValue("string", "app_name", Statics.APP_NAME)
     }

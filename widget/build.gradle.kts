@@ -15,7 +15,7 @@ dependencies {
 }
 
 android {
-
+    compileSdk = 30
     defaultConfig {
         minSdk = 21
         // lib 项目 无需指定 targetSdk,仅用于构建测试apk
@@ -35,8 +35,7 @@ android {
     }
     compileOptions {
         kotlinOptions.freeCompilerArgs += arrayOf(
-            "-module-name",
-            Publish.Maven.getFourPackage(projectDir)
+            "-module-name", Publish.Maven.getFourPackage(projectDir)
         )
     }
     buildFeatures {

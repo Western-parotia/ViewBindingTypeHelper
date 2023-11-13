@@ -1,2 +1,2 @@
 include(":widget")
-//include(":app")
+include(":app")
