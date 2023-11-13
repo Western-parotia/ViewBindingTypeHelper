@@ -120,13 +120,5 @@ object Publish {
                 repositoryPassword
             )
         }
-
-        fun codingRepositories(rh: RepositoryHandler) {
-            rh.mavenPassword(
-                Repositories.codingMjMaven,
-                repositoryUserName,
-                repositoryPassword
-            )
-        }
     }
 }
