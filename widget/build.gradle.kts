@@ -1,3 +1,4 @@
+import com.foundation.kts.AndroidConfig
 import com.foundation.kts.Dependencies
 import com.foundation.kts.Publish
 
@@ -15,9 +16,9 @@ dependencies {
 }
 
 android {
-    compileSdk = 30
+    compileSdk = AndroidConfig.compileSdkVersion
     defaultConfig {
-        minSdk = 21
+        minSdk = AndroidConfig.minSdkVersion
         // lib 项目 无需指定 targetSdk,仅用于构建测试apk
 //        targetSdk = 31
         buildConfigField("String", "versionName", "\"${Publish.Version.versionName}\"")
@@ -29,15 +30,12 @@ android {
     }
     kotlinOptions {
         jvmTarget = "1.8"
+        //指定kotlin module 唯一标识，避免重复时报错
         freeCompilerArgs =
             freeCompilerArgs + arrayOf("-module-name", Publish.Maven.getFourPackage(projectDir))
 
     }
-    compileOptions {
-        kotlinOptions.freeCompilerArgs += arrayOf(
-            "-module-name", Publish.Maven.getFourPackage(projectDir)
-        )
-    }
+
     buildFeatures {
         viewBinding = true
     }

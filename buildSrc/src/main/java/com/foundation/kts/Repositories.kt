@@ -43,7 +43,8 @@ object Repositories {
                 aliyunMjDefName,
                 aliyunMjDefPassword
             )
-
+            google()
+            mavenCentral()
 //            可能会影响下载速度，如果需要可以单独放开
 //            mavenCentral()
 //            mavenLocal()

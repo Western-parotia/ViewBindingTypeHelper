@@ -12,6 +12,7 @@ object Repositories {
     private const val aliyunJcenter = "https://maven.aliyun.com/repository/jcenter/"
     private const val aliyunCentral = "https://maven.aliyun.com/repository/central/"
     private const val jitpackIo = "https://jitpack.io"
+    private const val google = "https://maven.google.com/"
 
     /**
      * 默认的几个，不包含需要密码
@@ -26,7 +27,7 @@ object Repositories {
             maven(aliyunJcenter)
             maven(aliyunCentral)
             maven(jitpackIo)
-
+            maven(google)
 //            可能会影响下载速度，如果需要可以单独放开
 //            mavenCentral()
 //            mavenLocal()
@@ -39,12 +40,14 @@ object Repositories {
 
 repositories {
     Repositories.defRepositories(this)
+    mavenCentral()
+    google()
 }
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar", "*.aar"))))
-    implementation(localGroovy())
+    implementation("com.android.tools.build:gradle:7.4.2")
 }
 java {
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = JavaVersion.VERSION_1_8
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
 }
