@@ -42,7 +42,6 @@ repositories {
 }
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar", "*.aar"))))
-    implementation("com.android.tools.build:gradle:4.1.3")
     implementation(localGroovy())
 }
 java {

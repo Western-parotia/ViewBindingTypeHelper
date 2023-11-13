@@ -10,7 +10,7 @@ buildscript {//这里不支持import
         com.foundation.kts.Repositories.defRepositories(this)
     }
     dependencies {
-        classpath("com.android.tools.build:gradle:4.1.3")
+        classpath("com.android.tools.build:gradle:7.4.2")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${com.foundation.kts.Dependencies.kotlinVersion}")
 
         // NOTE: Do not place your application dependencies here; they belong

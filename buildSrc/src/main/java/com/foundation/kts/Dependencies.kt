@@ -1,7 +1,7 @@
 package com.foundation.kts
 
 object Dependencies {
-    const val kotlinVersion = "1.6.21"
+    const val kotlinVersion = "1.7.0"
 
     object Kotlin {
         const val kotlin_stdlib = "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
